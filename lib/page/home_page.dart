@@ -1,12 +1,9 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:internews/common/constant/image.dart';
 import 'package:internews/controller/load_data_controller.dart';
 import 'package:internews/page/web_view_news_page.dart';
-import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   final LoadDataController loadDataController = Get.put(LoadDataController());
@@ -21,15 +18,13 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late int _selectIndex;
   late TabController _tabController;
-  late List _get = [];
-  final _apiKey = '1fdb719ddf31444e9cac7f1e17b10d4a';
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     _selectIndex = 0;
-    _loadData();
+  
   }
 
   @override
@@ -45,20 +40,7 @@ class _HomePageState extends State<HomePage>
     ));
   }
 
-  void _loadData() async {
-    try {
-      final response = await http.get(Uri.parse(
-          "https://newsapi.org/v2/everything?q=iot&from=2022-04-30&sortBy=publishedAt&apiKey=${_apiKey}"));
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        setState(() {
-          _get = data['articles'];
-        });
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
+ 
 
   Widget _buildBody() {
     return GetBuilder<LoadDataController>(
@@ -103,7 +85,7 @@ class _HomePageState extends State<HomePage>
                     )),
                 const SizedBox(height: 32),
                 const Text(
-                  "\' Wachstum in Krisenzeiten: Dell und Lenovo - voll im Saf \'",
+                  " Wachstum in Krisenzeiten: Dell und Lenovo - voll im Saf ",
                   style: TextStyle(color: Colors.white, fontSize: 32),
                   maxLines: 4,
                 )

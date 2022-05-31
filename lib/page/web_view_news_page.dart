@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewNewsPage extends StatefulWidget {
-  String url;
+  final String url;
 
-  WebViewNewsPage({Key? key, required this.url}) : super(key: key);
+  const WebViewNewsPage({Key? key, required this.url}) : super(key: key);
 
   @override
   State<WebViewNewsPage> createState() => _WebViewNewsPageState();
