@@ -1,5 +1,5 @@
-class ListNews {
-  ListNews({
+class ListNewsModel {
+  ListNewsModel({
     this.status,
     this.totalResults,
     this.articles,
@@ -9,10 +9,10 @@ class ListNews {
   int? totalResults;
   List<Article>? articles;
 
-  factory ListNews.fromJson(Map<String, dynamic> json) => ListNews(
+  factory ListNewsModel.fromJson(Map<String, dynamic> json) => ListNewsModel(
         status: json["status"],
         totalResults: json["totalResults"],
-        articles: List<Article>.from(
+        articles:json["articles"]==null?null: List<Article>.from(
             json["articles"].map((x) => Article.fromJson(x))),
       );
 
