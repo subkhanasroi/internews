@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:internews/page/home_page.dart';
+import 'package:internews/splash_page.dart';
 
 class InterNews extends StatefulWidget {
   const InterNews({Key? key}) : super(key: key);
@@ -23,6 +24,6 @@ class _InterNewsState extends State<InterNews> {
           backgroundColor: Colors.white,
           primarySwatch: Colors.blue,
         ),
-        home: HomePage());
+        home: const SplashPage());
   }
 }

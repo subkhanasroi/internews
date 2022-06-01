@@ -14,6 +14,7 @@ class DataClient {
         )
         .timeout(const Duration(seconds: 12))
         .then((res) {
+      print(url);
       return ListNewsModel.fromJson(json.decode(res.body));
     });
   }
@@ -27,6 +28,20 @@ class DataClient {
         )
         .timeout(const Duration(seconds: 12))
         .then((res) {
+      print(url);
+      return ListNewsModel.fromJson(json.decode(res.body));
+    });
+  }
+  Future<ListNewsModel> getBusinessNews() async {
+    String url =
+        "${Env.baseUrl}/v2/top-headlines?apiKey=${Env.apiKey}&country=us&category=business";
+    return http
+        .get(
+          Uri.parse(url),
+        )
+        .timeout(const Duration(seconds: 12))
+        .then((res) {
+          print(url);
       return ListNewsModel.fromJson(json.decode(res.body));
     });
   }

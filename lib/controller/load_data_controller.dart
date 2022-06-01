@@ -6,16 +6,17 @@ class LoadDataController extends GetxController {
   final DataClient _dataClient = DataClient();
   late ListNewsModel listInternational;
   late ListNewsModel listLocal;
+  late ListNewsModel listBusiness;
 
   @override
   void onInit() {
+    super.onInit();
     listInternational = ListNewsModel();
     listLocal = ListNewsModel();
-
+    listBusiness = ListNewsModel();
     internationalNews();
     localNews();
-
-    super.onInit();
+    businessNews();
   }
 
   Future<void> internationalNews() async {
@@ -31,6 +32,15 @@ class LoadDataController extends GetxController {
     await _dataClient.getLocalNews().then((response) async {
       if (response.status == "ok") {
         listLocal = response;
+        update();
+      }
+    }).catchError((e) {});
+  }
+
+  Future<void> businessNews() async {
+    await _dataClient.getBusinessNews().then((response) async {
+      if (response.status == "ok") {
+        listBusiness = response;
         update();
       }
     }).catchError((e) {});
