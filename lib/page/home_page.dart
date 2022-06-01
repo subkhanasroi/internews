@@ -218,7 +218,6 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget _businessNews(LoadDataController data) {
-    print("${data.listBusiness.articles}");
     return ListView.builder(
         itemCount: data.listBusiness.articles?.length ?? 0,
         itemBuilder: (context, index) {

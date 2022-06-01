@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:internews/page/home_page.dart';
 import 'package:internews/splash_page.dart';
 
 class InterNews extends StatefulWidget {

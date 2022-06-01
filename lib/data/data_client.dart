@@ -14,7 +14,7 @@ class DataClient {
         )
         .timeout(const Duration(seconds: 12))
         .then((res) {
-      print(url);
+
       return ListNewsModel.fromJson(json.decode(res.body));
     });
   }
@@ -28,7 +28,7 @@ class DataClient {
         )
         .timeout(const Duration(seconds: 12))
         .then((res) {
-      print(url);
+
       return ListNewsModel.fromJson(json.decode(res.body));
     });
   }
@@ -41,7 +41,7 @@ class DataClient {
         )
         .timeout(const Duration(seconds: 12))
         .then((res) {
-          print(url);
+
       return ListNewsModel.fromJson(json.decode(res.body));
     });
   }
